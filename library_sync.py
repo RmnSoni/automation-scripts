@@ -6,7 +6,7 @@ path = '/home/gasher/Downloads/'
 listed = os.listdir(path)
 
 accepted_formats = [ '.epub', '.mobi', '.awz' ]
-
+subprocess.run(["notify-send", "Movings ebooks to library"])
 for item in listed:
     if any(item.endswith(ext) for ext in accepted_formats):
 
@@ -20,3 +20,10 @@ for item in listed:
         
         except subprocess.CalledProcessError as e:
             print(f"Error adding '{item}' to Calibre library. Error message:\n{e.output}")
+            
+
+
+'''
+bash alias
+alias libsync="python ~/Desktop/coding/automation-scripts/library_sync.py"
+'''
